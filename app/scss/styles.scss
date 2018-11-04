@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+$site-heading: "'Pacifico', cursive";
+body {
+  background-image: url("/../images/peace.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Helvetica";
+  margin: 0;
+}
+.header {
+  position: fixed;
+  top: 0;
+  background-color: #FFFFFF;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  z-index: 10;
+  h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+
+    .far {
+      margin: 0 5px;
+    }
+    .fas {
+      font-size: 15px;
+      position: relative;
+      top: -20px;
+    }
+  }
+}
+
+.widget-container {
+  display: flex;
+  flex-direction: row;
+  width: 1200px;
+  justify-content: space-between;
+  margin: 20px auto;
+  margin-top: 90px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+}
+
+.widget {
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+  width: calc(33% - 20px);
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0px 0px 32px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 32px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 32px -5px rgba(0,0,0,0.75);
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  &.current-forecast {
+    padding: 20px;
+
+    @media (max-width: 768px) {
+      padding: 20px 10px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+
+  &.tfl {
+    padding: 0 20px;
+    @media (max-width: 768px) {
+      padding: 0 10px;
+    }
+
+    .search-ul {
+      margin: 0;
+      border: #EEE 1px solid;
+      border-top: 0;
+    }
+
+    h2, h3 {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.large-icon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 20px;
+
+  .fa-bus-alt {
+    font-size: 150px;
+    z-index:2;
+    margin-top: 30px;
+  }
+
+  .fa-map-signs {
+    font-size: 150px;
+    z-index: 1;
+    margin-left: -50px;
+  }
+}
+
+.tube-status {
+  h2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+
+    @media (max-width: 768px) {
+      padding: 0 10px;
+    }
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+
+  li {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    font-size: 16px;
+
+    &.disrupted {
+      cursor: pointer;
+
+      &:last-of-type {
+        margin-bottom: 20px;
+      }
+    }
+
+    .line-break {
+      width: 100%;
+    }
+
+    span {
+      margin-top: 20px;
+    }
+  }
+}
+
+.search {
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  height: 40px;
+  font-size: 20px;
+  padding: 10px;
+  border: 1px #EEE solid;
+  border-radius: 0;
+  outline: 0;
+  width: 100%;
+}
+
+.search-ul {
+  margin: 0;
+  border: 1px solid #EEE;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+h3 span {
+  color: #3BAEA4;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+  padding: 20px;
+  display:  flex;
+  justify-content: flex-start;
+  flex-direction:  row;
+  align-content: flex-start;
+
+  @media (max-width: 768px) {
+    padding: 20px 10px;
+  }
+
+
+}
+
+div.image {
+  width: 36%;
+  display: inline-block;
+}
+
+div.content {
+  width: 65%;
+  display: inline-block;
+}
+
+p.summary {
+  line-height: 1.5;
+}
+
+span.title {
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 60%;
+  display: inline-block;
+}
+
+li.search-results {
+  padding: 10px;
+  cursor: pointer;
+
+  &:nth-child(odd){
+    background-color: #EEEEEE;
+  }
+
+  &:hover {
+    background-color: #B9BFBF;
+  }
+}
+
+ul.bus-stops {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-flow: wrap;
+}
+
+span.stop-circle {
+  background-color: #3BAEA4;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+li.movielist:nth-child(odd) {
+  background-color: #EEE;
+  flex-direction: row-reverse;
+}
+
+li.bus-stops {
+  padding: 0;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  width: calc(25% - 5px);
+
+  &:nth-child(4) {
+    padding-right: 0;
+  }
+
+  span {
+    width: 100%;
+    font-size: 13px;
+    transition: 0.5s;
+  }
+
+  &.active span {
+    background-color: #465268;
+  }
+}
+
+li.movielist:nth-child(odd) .content {
+  padding-right: 20px;
+}
+
+li.bus-list{
+  font-weight: bold;
+  display: block;
+  font-size: 13px;
+  padding: 20px;
+  width: calc(100%);
+  margin-left: -20px;
+
+  @media (max-width: 768px) {
+    padding: 20px 10px;
+    margin-left: -10px;
+  }
+}
+
+li.bus-list .counter {
+  white-space: nowrap;
+  float: right;
+}
+
+li.bus-list:nth-child(odd){
+  background-color: #EEE;
+}
+
+li.london-overground {
+  background-color: #EE7C0E;
+  color: #FFFFFF;
+}
+li.bakerloo {
+  background-color: #B36305;
+  color: #FFFFFF;
+}
+li.circle {
+  background-color: #FFD300;
+  color: #FFFFFF;
+}
+li.district {
+  background-color: #00782A;
+  color: #FFFFFF;
+}
+li.hammersmith-city {
+  background-color: #F3A9BB;
+  color: #FFFFFF;
+}
+li.jubilee {
+  background-color: #A0A5A9;
+  color: #FFFFFF;
+}
+li.central {
+  background-color: #E32017;
+  color: #FFFFFF;
+}
+li.metropolitan {
+  background-color: #9B0056;
+  color: #FFFFFF;
+}
+li.northern {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+li.piccadilly {
+  background-color: #003688;
+  color: #FFFFFF;
+}
+li.victoria {
+  background-color: #0098D4;
+  color: #FFFFFF;
+}
+li.waterloo-city {
+  background-color: #95CDBA;
+  color: #FFFFFF;
+}
+
+.fa-bus-alt {
+  color: red;
+}

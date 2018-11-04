@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:title" content="Widget me App" />
+    <meta property="og:image" content="images/logo.png" />
+    <meta property="og:description" content="Also want these pretty website previews?" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+
+    <meta property="og:image" content="http://markcarlson.io/wp-content/uploads/2016/12/Heart_font_awesome.svg.png" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+    <link href="css/styles.css" rel="stylesheet">
+    <title>Widget me</title>
+</head>
+<body>
+    <header class="header">
+        <h1>Widget me <i class="far fa-window-restore"></i><i class="fas fa-rss"></i></h1>
+    </header>
+    <div class="widget-container">
+        <div id="tube-status" class="widget tube-status">
+          <h2>Tube status <i class="fas fa-subway"></i></h2>
+          <ul>
+              <li class="statuses" v-for="line in statuses" v-bind:class="[line.id, line.addClass]" v-on:click="line.showDisruption = !line.showDisruption">{{ line.line }} - {{line.status}}
+              <i v-show="line.showIcon" class="fas fa-exclamation-triangle"></i><div class="line-break"></div>
+              <span v-if="line.showDisruption && line.reason">{{ line.reason }}</span>
+            </li>
+          </ul>
+        </div>
+        <div id="tfl" class="widget tfl">
+          <h2>Bus Countdown <i class="fas fa-bus"></i></h2>
+          <input v-on:keyup="loadSearchResult()" id="search" class="search" placeholder="Search stop">
+          <ul class="search-ul"><li class="search-results" v-bind:id="result.id" v-on:click="filterSearch(result.id)" v-show="showList" v-for="result in searchResults">{{ result.name }}</li></ul>
+          <ul class="bus-stops"><li class="bus-stops" v-bind:class="busStop.isActive" v-bind:id="busStop.id" v-for="busStop in busStops" v-on:click="loadData(busStop.id); isActive(busStop.id)"><span class="stop-circle">{{ busStop.name }}</span></li></ul>
+          <h3>{{ stationName }}</h3>
+          <ul>
+            <li class="bus-list" v-for="bus in buses"><span class="bus-nr"><i class="fas fa-bus-alt"></i> {{ bus.bus }} </span><span class="bus-dest"> to {{ bus.destination }} </span><span class="counter"> {{ bus.displayArrival }}</span></li>
+          </ul>
+          <div class="large-icon"><i class="fas fa-bus-alt"></i><i class="fas fa-map-signs"></i></div>
+        </div>
+        <div id="current-forecast" class="widget current-forecast">
+          <h2>Air pollution forecast</h2>
+          <p class="band">Pollution status: {{ forecastBand }}</p>
+          <p class="summary">{{ forecastSummary }}</p>
+          <p><span class="forecast-text" v-html="forecastText"></span></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
