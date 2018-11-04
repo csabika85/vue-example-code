@@ -1,4 +1,4 @@
-# Project Title
+# My VueJs learning project
 
 Example code of my Vue JS learning progress - API calls from TFL API
 
